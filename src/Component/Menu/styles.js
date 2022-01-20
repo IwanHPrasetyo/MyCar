@@ -3,11 +3,10 @@ import {StyleSheet} from 'react-native';
 
 const Styles = StyleSheet.create({
   mainView: {
-    height: '80%',
-    width: '48%',
+    height: '100%',
+    width: '30%',
     flexDirection: 'row',
     borderRadius: 20,
-    backgroundColor: '#ffa801',
     marginRight: '4%',
     justifyContent: 'center',
     alignItems: 'center',
