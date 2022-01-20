@@ -2,7 +2,11 @@ import {StyleSheet} from 'react-native';
 import {metric} from '../../Theme';
 
 const Styles = StyleSheet.create({
-  mainView: {height: metric.screenHeight, backgroundColor: '#ffa801'},
+  mainView: {
+    height: metric.screenHeight,
+    width: metric.screenWidth,
+    backgroundColor: '#ffa801',
+  },
   bodyView: {flex: 1.2},
   titleBox: {
     flexDirection: 'row',
