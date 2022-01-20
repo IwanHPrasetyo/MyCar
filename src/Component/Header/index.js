@@ -3,7 +3,7 @@ import {Text, View} from 'react-native';
 import {icon} from '../../Theme';
 import Styles from './styles';
 
-const Header = navigation => {
+const Header = ({navigation, type}) => {
   return (
     <View style={Styles.mainView}>
       <View

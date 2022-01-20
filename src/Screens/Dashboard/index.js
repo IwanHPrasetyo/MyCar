@@ -51,70 +51,69 @@ const Dashboard = ({navigation}) => {
 
   return (
     <View style={Styles.mainView}>
-      <ScrollView>
-        <Header navigation={navigation} />
-        <View style={Styles.subHeader}>
-          <Text style={Styles.textSubHead}>Find Your Car</Text>
-          <View
-            style={{
-              height: '30%',
-              flexDirection: 'row',
-            }}>
-            <Menu
-              navigation={navigation}
-              title={'All'}
-              select={true}
-              nameIcon={'car-outline'}
-              isMenu={isMenu}
-              setIsMenu={setIsMenu}
-            />
-            <Menu
-              navigation={navigation}
-              title={'Wagon'}
-              select={false}
-              nameIcon={'car'}
-              isMenu={isMenu}
-              setIsMenu={setIsMenu}
-            />
-            <Menu
-              navigation={navigation}
-              title={'Sedan'}
-              select={false}
-              isMenu={isMenu}
-              nameIcon={'car-sport'}
-              setIsMenu={setIsMenu}
-            />
-          </View>
-          <TextInput
-            placeholder="Search"
-            style={{
-              height: '30%',
-              width: '100%',
-              borderRadius: 10,
-              backgroundColor: 'white',
-              marginTop: '2%',
-              padding: 10,
-            }}
-            // onChangeText={onChangeText}
-            // value={text}
+      <Header navigation={navigation} />
+      <View style={Styles.subHeader}>
+        <Text style={Styles.textSubHead}>Find Your Car</Text>
+        <View
+          style={{
+            height: '30%',
+            flexDirection: 'row',
+          }}>
+          <Menu
+            navigation={navigation}
+            title={'All'}
+            select={true}
+            nameIcon={'car-outline'}
+            isMenu={isMenu}
+            setIsMenu={setIsMenu}
+          />
+          <Menu
+            navigation={navigation}
+            title={'Wagon'}
+            select={false}
+            nameIcon={'car'}
+            isMenu={isMenu}
+            setIsMenu={setIsMenu}
+          />
+          <Menu
+            navigation={navigation}
+            title={'Sedan'}
+            select={false}
+            isMenu={isMenu}
+            nameIcon={'car-sport'}
+            setIsMenu={setIsMenu}
           />
         </View>
-        <View style={Styles.bodyView}>
-          <BigList
-            showsVerticalScrollIndicator={false}
-            data={data}
-            renderItem={({item, index}) => (
-              <Product navigation={navigation} item={item} />
-            )}
-            // renderEmpty={renderEmpty}
-            // renderHeader={<Product />}
-            // renderFooter={renderFooter}
-            numColumns={2}
-            itemHeight={metric.screenHeight * 0.3} // Required (default 0)
-            headerHeight={90} // Required to show header
-            footerHeight={100} // Required to show footer
-          />
-          {/* {isMenu == true ? (
+        <TextInput
+          placeholder="Search"
+          style={{
+            height: '30%',
+            width: '100%',
+            borderRadius: 10,
+            backgroundColor: 'white',
+            marginTop: '2%',
+            padding: 10,
+          }}
+          // onChangeText={onChangeText}
+          // value={text}
+        />
+      </View>
+      <View style={Styles.bodyView}>
+        <BigList
+          showsVerticalScrollIndicator={false}
+          data={data}
+          renderItem={({item, index}) => (
+            <Product navigation={navigation} item={item} />
+          )}
+          // renderEmpty={renderEmpty}
+          // renderHeader={<Product />}
+          // renderFooter={renderFooter}
+          numColumns={2}
+          itemHeight={metric.screenHeight * 0.3} // Required (default 0)
+          headerHeight={90} // Required to show header
+          footerHeight={100} // Required to show footer
+        />
+        {/* {isMenu == true ? (
           <View style={Styles.floatingMenu}>
             <icon.Ionicons
               style={{flex: 1, textAlign: 'center'}}
@@ -131,7 +130,7 @@ const Dashboard = ({navigation}) => {
           </View>
         ) : null} */}
 
-          {/* <TextInput
+        {/* <TextInput
               style={{
                 height: '80%',
                 width: '95%',
@@ -144,13 +143,12 @@ const Dashboard = ({navigation}) => {
               value={text}
             /> */}
 
-          <Pressable
-            onPress={() => console.log('menuu menuu')}
-            style={Styles.floatingView}>
-            <icon.Ionicons color={'#ecf0f1'} name={'add'} size={20} />
-          </Pressable>
-        </View>
-      </ScrollView>
+        <Pressable
+          onPress={() => console.log('menuu menuu')}
+          style={Styles.floatingView}>
+          <icon.Ionicons color={'#ecf0f1'} name={'add'} size={20} />
+        </Pressable>
+      </View>
     </View>
   );
 };

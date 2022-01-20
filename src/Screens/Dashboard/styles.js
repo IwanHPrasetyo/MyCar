@@ -3,7 +3,7 @@ import {metric} from '../../Theme';
 
 const Styles = StyleSheet.create({
   mainView: {
-    height: metric.screenHeight,
+    flex: 1,
     width: metric.screenWidth,
     backgroundColor: '#dff9fb',
   },
