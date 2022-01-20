@@ -5,19 +5,22 @@ const Styles = StyleSheet.create({
   mainView: {
     height: metric.screenHeight,
     width: metric.screenWidth,
+    backgroundColor: '#dff9fb',
   },
   subHeader: {
-    padding: 10,
+    paddingHorizontal: 10,
     justifyContent: 'center',
-    height: metric.screenHeight * 0.08,
+    height: metric.screenHeight * 0.15,
   },
   textSubHead: {
-    fontSize: 25,
+    height: '50%',
+    fontSize: 30,
     fontFamily: 'NexaXBold',
   },
+
   bodyView: {
-    height: metric.screenHeight * 0.83,
-    backgroundColor: 'red',
+    height: metric.screenHeight * 0.76,
+    padding: 10,
   },
 });
 
