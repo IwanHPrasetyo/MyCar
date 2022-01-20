@@ -8,27 +8,32 @@ import Styles from './styles';
 
 const data = [
   {
-    label: '1',
+    model: 'TOYOTA CAMRY',
+    version: 'X',
     value: 1,
     image: 'https://www.goo-net.com/carphoto/10101015_201808.jpg',
   },
   {
-    label: '2',
+    model: 'TOYOTA CAMRY',
+    version: 'G',
     value: 2,
     image: 'http://www.goo-net.com/carphoto/10101015_201808a.jpg',
   },
   {
-    label: '3',
+    model: 'TOYOTA CAMRY',
+    version: 'WS',
     value: 3,
     image: 'http://www.goo-net.com/carphoto/10101015_201808c.jpg',
   },
   {
-    label: '4',
+    model: 'TOYOTA CAMRY',
+    version: 'G LEATHER PACKAGE',
     value: 4,
     image: 'http://www.goo-net.com/carphoto/10101015_201109.jpg',
   },
   {
-    label: '5',
+    model: 'TOYOTA CAMRY',
+    version: 'WS LEATHER PACKAGE',
     value: 5,
     image: 'http://www.goo-net.com/carphoto/10101015_200707.jpg',
   },
@@ -61,6 +66,7 @@ const Dashboard = ({navigation}) => {
       </View>
       <View style={Styles.bodyView}>
         <BigList
+          showsVerticalScrollIndicator={false}
           data={data}
           renderItem={({item, index}) => (
             <Product navigation={navigation} item={item} />
@@ -73,9 +79,6 @@ const Dashboard = ({navigation}) => {
           headerHeight={90} // Required to show header
           footerHeight={100} // Required to show footer
         />
-        {/* <ScrollView> */}
-        {/*  */}
-        {/* </ScrollView> */}
       </View>
     </View>
   );

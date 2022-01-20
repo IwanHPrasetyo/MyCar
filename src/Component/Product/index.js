@@ -1,25 +1,47 @@
 import React from 'react';
 import {View, Text, Image} from 'react-native';
+import {icon} from '../../Theme';
 import Styles from './styles';
 
 const Product = ({navigation, item}) => {
   return (
     <View style={Styles.mainView}>
-      <View
-        style={{
-          height: '100%',
-          width: '100%',
-          borderRadius: 10,
-          backgroundColor: 'white',
-          alignItems: 'center',
-        }}>
+      <View style={Styles.subView}>
         <Image
-          style={{width: '90%', height: '40%'}}
+          style={Styles.imageView}
           resizeMode="cover"
           source={{
             uri: `${item.image}`,
           }}
         />
+        <icon.Ionicons
+          style={Styles.iconLike}
+          size={20}
+          name="heart"
+          color="#eb3b5a"
+        />
+        <View style={Styles.viewDescription}>
+          <View style={Styles.viewTitle}>
+            <Text numberOfLines={2} style={Styles.textModel}>
+              {item.model}
+            </Text>
+            <Text numberOfLines={2} style={Styles.textVersion}>
+              {item.version}
+            </Text>
+          </View>
+          <View style={Styles.viewPrice}>
+            <Image
+              style={Styles.flag}
+              resizeMode="cover"
+              source={{
+                uri: `https://cdn-icons-png.flaticon.com/128/197/197604.png`,
+              }}
+            />
+            <Text numberOfLines={1} style={Styles.textPrice}>
+              ¥ 3.298.320
+            </Text>
+          </View>
+        </View>
       </View>
     </View>
   );
