@@ -18,10 +18,11 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+import Navigation from './src/Navigators';
 import StartUp from './src/Screens/StartUp';
 
 const App = () => {
-  return <StartUp />;
+  return <Navigation />;
 };
 
 export default App;

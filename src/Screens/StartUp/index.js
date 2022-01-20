@@ -1,18 +1,19 @@
 import React from 'react';
 import {Image, Pressable, Text, View} from 'react-native';
-import {metric} from '../Theme';
-import Styles from './Styles';
+import {icon} from '../../Theme';
+import Styles from './styles';
 
 const StartUp = ({navigation}) => {
   return (
     <View style={Styles.mainView}>
       <View style={Styles.bodyView}>
         <View style={Styles.titleBox}>
+          <icon.FontAwesome5 name="car-side" />
           <Text style={Styles.textTitle}>My Car</Text>
         </View>
         <Image
           style={Styles.mainImage}
-          source={require('../Assets/Images/toyota.png')}
+          source={require('../../Assets/Images/toyota.png')}
         />
       </View>
       <View style={Styles.footer}>

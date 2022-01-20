@@ -1,10 +1,11 @@
 import {StyleSheet} from 'react-native';
-import {metric} from '../Theme';
+import {metric} from '../../Theme';
 
 const Styles = StyleSheet.create({
   mainView: {height: metric.screenHeight, backgroundColor: '#ffa801'},
   bodyView: {flex: 1.2},
   titleBox: {
+    flexDirection: 'row',
     height: metric.screenHeight * 0.06,
     width: metric.screenWidth * 0.4,
     backgroundColor: 'white',
@@ -22,6 +23,7 @@ const Styles = StyleSheet.create({
   },
   textTitle: {
     fontSize: 14,
+    marginLeft: 5,
     fontWeight: 'bold',
     color: '#2c3e50',
   },
