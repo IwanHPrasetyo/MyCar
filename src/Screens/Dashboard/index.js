@@ -145,7 +145,7 @@ const Dashboard = ({navigation}) => {
             /> */}
 
           <Pressable
-            onPress={() => setIsMenu(!isMenu)}
+            onPress={() => console.log('menuu menuu')}
             style={Styles.floatingView}>
             <icon.Ionicons color={'#ecf0f1'} name={'add'} size={20} />
           </Pressable>
