@@ -1,5 +1,5 @@
 import React from 'react';
-import {ScrollView, Text, View} from 'react-native';
+import {ImageBackground, ScrollView, Text, View} from 'react-native';
 import {Header} from '../../Component';
 import {metric} from '../../Theme';
 import Styles from './styles';
@@ -15,13 +15,22 @@ const Product = ({navigation}) => {
           width: '90%',
           alignSelf: 'center',
           borderRadius: 10,
-          backgroundColor: 'pink',
+          backgroundColor: 'white',
           elevation: 2,
-        }}></View>
+          justifyContent: 'center',
+        }}>
+        <ImageBackground
+          style={{height: '80%', width: '100%'}}
+          resizeMode="cover"
+          source={{
+            uri: 'https://www.goo-net.com/carphoto/10101015_201808.jpg',
+          }}
+        />
+      </View>
       <View
         style={{
           height: metric.screenHeight * 0.435,
-          backgroundColor: 'yellow',
+          // backgroundColor: 'yellow',
         }}></View>
     </View>
     // </ScrollView>
