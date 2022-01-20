@@ -40,7 +40,7 @@ const data = [
 ];
 
 const Dashboard = ({navigation}) => {
-  const [isMenu, setIsMenu] = useState(false);
+  const [isMenu, setIsMenu] = useState('All');
 
   return (
     <View style={Styles.mainView}>
@@ -58,18 +58,24 @@ const Dashboard = ({navigation}) => {
               title={'All'}
               select={true}
               nameIcon={'car-outline'}
+              isMenu={isMenu}
+              setIsMenu={setIsMenu}
             />
             <Menu
               navigation={navigation}
               title={'Wagon'}
               select={false}
               nameIcon={'car'}
+              isMenu={isMenu}
+              setIsMenu={setIsMenu}
             />
             <Menu
               navigation={navigation}
               title={'Sedan'}
               select={false}
+              isMenu={isMenu}
               nameIcon={'car-sport'}
+              setIsMenu={setIsMenu}
             />
           </View>
           <TextInput
