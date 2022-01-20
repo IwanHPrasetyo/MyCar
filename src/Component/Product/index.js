@@ -1,11 +1,13 @@
 import React from 'react';
-import {View, Text, Image} from 'react-native';
+import {View, Text, Image, Pressable} from 'react-native';
 import {icon} from '../../Theme';
 import Styles from './styles';
 
 const Product = ({navigation, item}) => {
   return (
-    <View style={Styles.mainView}>
+    <Pressable
+      onPress={() => navigation.navigate('Product')}
+      style={Styles.mainView}>
       <View style={Styles.subView}>
         <Image
           style={Styles.imageView}
@@ -43,7 +45,7 @@ const Product = ({navigation, item}) => {
           </View>
         </View>
       </View>
-    </View>
+    </Pressable>
   );
 };
 export {Product};

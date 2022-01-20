@@ -1,6 +1,13 @@
 import React, {useState} from 'react';
 import BigList from 'react-native-big-list';
-import {ScrollView, Text, View, Pressable, TextInput} from 'react-native';
+import {
+  ScrollView,
+  Text,
+  View,
+  Pressable,
+  TextInput,
+  StatusBar,
+} from 'react-native';
 import {Header, Menu, Product, FloatingButton} from '../../Component';
 import {metric, icon} from '../../Theme';
 

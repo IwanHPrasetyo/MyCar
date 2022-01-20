@@ -21,7 +21,9 @@ const StartUp = ({navigation}) => {
         <Text style={Styles.text2Footer}>
           Everything is easier when you can do everything in your hands
         </Text>
-        <Pressable style={Styles.buttonFooter}>
+        <Pressable
+          onPress={() => navigation.navigate('Dashboard')}
+          style={Styles.buttonFooter}>
           <Text style={Styles.textButton}>Let's Start</Text>
         </Pressable>
       </View>
