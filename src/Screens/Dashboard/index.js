@@ -11,19 +11,20 @@ import {
 import {Header, Menu, Product, FloatingButton} from '../../Component';
 import {metric, icon} from '../../Theme';
 import {getItem} from '../../Helper';
+import ModalProduct from '../../Component/ModalProduct';
 
 import Styles from './styles';
 
 const Dashboard = ({navigation}) => {
   const [isMenu, setIsMenu] = useState('All');
   const [itemCar, setItemCar] = useState([]);
+  const [modalVisible, setModalVisible] = useState(false);
 
   useEffect(() => {
     getAll(isMenu);
   }, []);
 
   const getAll = async filter => {
-    console.log(filter);
     let data = await getItem(filter);
 
     setItemCar(data);
@@ -34,6 +35,11 @@ const Dashboard = ({navigation}) => {
       <Header navigation={navigation} type={1} />
       <View style={Styles.subHeader}>
         <Text style={Styles.textSubHead}>Find Your Car</Text>
+        <ModalProduct
+          modalVisible={modalVisible}
+          setModalVisible={setModalVisible}
+          getAll={getAll}
+        />
         <View
           style={{
             height: '30%',
@@ -98,7 +104,7 @@ const Dashboard = ({navigation}) => {
         />
 
         <Pressable
-          onPress={() => console.log('menuu menuu')}
+          onPress={() => setModalVisible(true)}
           style={Styles.floatingView}>
           <icon.Ionicons color={'#ecf0f1'} name={'add'} size={20} />
         </Pressable>

@@ -8,9 +8,6 @@ const Product = ({route, navigation}) => {
   const {item} = route.params;
   const [product, setProduct] = useState(item);
 
-  let detail = JSON.stringify(item);
-  console.log(item.image);
-
   return (
     <ScrollView>
       <View style={Styles.mainView}>
