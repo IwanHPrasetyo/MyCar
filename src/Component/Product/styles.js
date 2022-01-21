@@ -54,12 +54,12 @@ const Styles = StyleSheet.create({
     padding: 10,
   },
   viewTitle: {
-    height: '50%',
+    height: '70%',
     width: '100%',
     justifyContent: 'center',
   },
   viewPrice: {
-    height: '50%',
+    height: '30%',
     width: '100%',
     alignItems: 'center',
     flexDirection: 'row',

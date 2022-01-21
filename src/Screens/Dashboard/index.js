@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import BigList from 'react-native-big-list';
 import {
   ScrollView,
@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import {Header, Menu, Product, FloatingButton} from '../../Component';
 import {metric, icon} from '../../Theme';
+import {getItem} from '../../Helper';
 
 import Styles from './styles';
 
@@ -48,10 +49,20 @@ const data = [
 
 const Dashboard = ({navigation}) => {
   const [isMenu, setIsMenu] = useState('All');
+  const [itemCar, setItemCar] = useState([]);
+
+  useEffect(() => {
+    getAll();
+  }, []);
+
+  const getAll = async () => {
+    let data = await getItem();
+    setItemCar(data);
+  };
 
   return (
     <View style={Styles.mainView}>
-      <Header navigation={navigation} />
+      <Header navigation={navigation} type={1} />
       <View style={Styles.subHeader}>
         <Text style={Styles.textSubHead}>Find Your Car</Text>
         <View
@@ -101,7 +112,7 @@ const Dashboard = ({navigation}) => {
       <View style={Styles.bodyView}>
         <BigList
           showsVerticalScrollIndicator={false}
-          data={data}
+          data={itemCar}
           renderItem={({item, index}) => (
             <Product navigation={navigation} item={item} />
           )}

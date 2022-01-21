@@ -6,34 +6,34 @@ import Styles from './styles';
 
 const Product = ({navigation}) => {
   return (
-    // <ScrollView>
-    <View style={Styles.mainView}>
-      <Header />
-      <View
-        style={{
-          height: metric.screenHeight * 0.435,
-          width: '90%',
-          alignSelf: 'center',
-          borderRadius: 10,
-          backgroundColor: 'white',
-          elevation: 2,
-          justifyContent: 'center',
-        }}>
-        <ImageBackground
-          style={{height: '80%', width: '100%'}}
-          resizeMode="cover"
-          source={{
-            uri: 'https://www.goo-net.com/carphoto/10101015_201808.jpg',
-          }}
-        />
+    <ScrollView>
+      <View style={Styles.mainView}>
+        <Header navigation={navigation} type={2} />
+        <View
+          style={{
+            height: metric.screenHeight * 0.435,
+            width: '100%',
+            // alignSelf: 'center',
+            // backgroundColor: 'red',
+            justifyContent: 'center',
+          }}>
+          <ImageBackground
+            style={{height: '85%', width: '100%'}}
+            resizeMode="cover"
+            source={{
+              uri: 'https://www.goo-net.com/carphoto/10101015_201808.jpg',
+            }}
+          />
+        </View>
+        <View
+          style={{
+            height: metric.screenHeight * 0.435,
+            backgroundColor: '#ffa801',
+            borderTopLeftRadius: 20,
+            borderTopRightRadius: 20,
+          }}></View>
       </View>
-      <View
-        style={{
-          height: metric.screenHeight * 0.435,
-          // backgroundColor: 'yellow',
-        }}></View>
-    </View>
-    // </ScrollView>
+    </ScrollView>
   );
 };
 

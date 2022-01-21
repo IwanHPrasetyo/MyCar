@@ -28,7 +28,7 @@ const Product = ({navigation, item}) => {
               {item.model}
             </Text>
             <Text numberOfLines={2} style={Styles.textVersion}>
-              {item.version}
+              {item.versi}
             </Text>
           </View>
           <View style={Styles.viewPrice}>

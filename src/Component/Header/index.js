@@ -5,7 +5,11 @@ import Styles from './styles';
 
 const Header = ({navigation, type}) => {
   return (
-    <View style={Styles.mainView}>
+    <View
+      style={[
+        Styles.mainView,
+        {backgroundColor: type == 1 ? '#dff9fb' : 'white'},
+      ]}>
       <View
         style={{
           flex: 1,
@@ -13,13 +17,17 @@ const Header = ({navigation, type}) => {
           justifyContent: 'center',
           alignItems: 'center',
         }}>
-        <icon.FontAwesome5
-          style={Styles.iconHeadLeft}
-          size={20}
-          name="car-side"
-          color="#ffa801"
-        />
-        <Text style={Styles.textTitle}>MyCar</Text>
+        {type == 1 ? (
+          <>
+            <icon.FontAwesome5
+              style={Styles.iconHeadLeft}
+              size={20}
+              name="car-side"
+              color="#ffa801"
+            />
+            <Text style={Styles.textTitle}>MyCar</Text>
+          </>
+        ) : null}
       </View>
       <View
         style={{

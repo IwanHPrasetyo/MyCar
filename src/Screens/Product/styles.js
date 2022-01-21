@@ -6,7 +6,7 @@ const Styles = StyleSheet.create({
   mainView: {
     flex: 1,
     width: metric.screenWidth,
-    backgroundColor: '#dff9fb',
+    backgroundColor: 'white',
   },
 });
 
