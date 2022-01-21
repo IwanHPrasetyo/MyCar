@@ -3,10 +3,20 @@ import {Pressable, Text, View} from 'react-native';
 import {icon} from '../../Theme';
 import Styles from './styles';
 
-const Menu = ({navigation, title, select, nameIcon, setIsMenu, isMenu}) => {
+const Menu = ({
+  navigation,
+  title,
+  select,
+  nameIcon,
+  setIsMenu,
+  isMenu,
+  getAll,
+}) => {
   return (
     <Pressable
-      onPress={() => setIsMenu(title)}
+      onPress={() => {
+        setIsMenu(title), getAll(title);
+      }}
       style={[
         Styles.mainView,
         {backgroundColor: isMenu == title ? '#ffa801' : 'white'},

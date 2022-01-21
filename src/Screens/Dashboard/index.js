@@ -14,49 +14,18 @@ import {getItem} from '../../Helper';
 
 import Styles from './styles';
 
-const data = [
-  {
-    model: 'TOYOTA CAMRY',
-    version: 'X',
-    value: 1,
-    image: 'https://www.goo-net.com/carphoto/10101015_201808.jpg',
-  },
-  {
-    model: 'TOYOTA CAMRY',
-    version: 'G',
-    value: 2,
-    image: 'http://www.goo-net.com/carphoto/10101015_201808a.jpg',
-  },
-  {
-    model: 'TOYOTA CAMRY',
-    version: 'WS',
-    value: 3,
-    image: 'http://www.goo-net.com/carphoto/10101015_201808c.jpg',
-  },
-  {
-    model: 'TOYOTA CAMRY',
-    version: 'G LEATHER PACKAGE',
-    value: 4,
-    image: 'http://www.goo-net.com/carphoto/10101015_201109.jpg',
-  },
-  {
-    model: 'TOYOTA CAMRY',
-    version: 'WS LEATHER PACKAGE',
-    value: 5,
-    image: 'http://www.goo-net.com/carphoto/10101015_200707.jpg',
-  },
-];
-
 const Dashboard = ({navigation}) => {
   const [isMenu, setIsMenu] = useState('All');
   const [itemCar, setItemCar] = useState([]);
 
   useEffect(() => {
-    getAll();
+    getAll(isMenu);
   }, []);
 
-  const getAll = async () => {
-    let data = await getItem();
+  const getAll = async filter => {
+    console.log(filter);
+    let data = await getItem(filter);
+
     setItemCar(data);
   };
 
@@ -77,6 +46,7 @@ const Dashboard = ({navigation}) => {
             nameIcon={'car-outline'}
             isMenu={isMenu}
             setIsMenu={setIsMenu}
+            getAll={getAll}
           />
           <Menu
             navigation={navigation}
@@ -85,6 +55,7 @@ const Dashboard = ({navigation}) => {
             nameIcon={'car'}
             isMenu={isMenu}
             setIsMenu={setIsMenu}
+            getAll={getAll}
           />
           <Menu
             navigation={navigation}
@@ -93,6 +64,7 @@ const Dashboard = ({navigation}) => {
             isMenu={isMenu}
             nameIcon={'car-sport'}
             setIsMenu={setIsMenu}
+            getAll={getAll}
           />
         </View>
         <TextInput
@@ -120,39 +92,10 @@ const Dashboard = ({navigation}) => {
           // renderHeader={<Product />}
           // renderFooter={renderFooter}
           numColumns={2}
-          itemHeight={metric.screenHeight * 0.3} // Required (default 0)
-          headerHeight={90} // Required to show header
-          footerHeight={100} // Required to show footer
+          itemHeight={metric.screenHeight * 0.3}
+          headerHeight={90}
+          footerHeight={100}
         />
-        {/* {isMenu == true ? (
-          <View style={Styles.floatingMenu}>
-            <icon.Ionicons
-              style={{flex: 1, textAlign: 'center'}}
-              color={'#ecf0f1'}
-              name={'add'}
-              size={20}
-            />
-            <icon.Ionicons
-              style={{flex: 1, textAlign: 'center'}}
-              color={'#ecf0f1'}
-              name={'add'}
-              size={20}
-            />
-          </View>
-        ) : null} */}
-
-        {/* <TextInput
-              style={{
-                height: '80%',
-                width: '95%',
-                borderRadius: 50,
-                backgroundColor: 'white',
-                margin: 12,
-                padding: 10,
-              }}
-              onChangeText={onChangeText}
-              value={text}
-            /> */}
 
         <Pressable
           onPress={() => console.log('menuu menuu')}

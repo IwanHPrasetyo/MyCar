@@ -1,18 +1,22 @@
 import {db} from '../Config';
 
-const getItem = () => {
+const getItem = isMenu => {
   return new Promise((resolve, reject) => {
-    console.log('jalan jalan');
+    console.log('ismenu');
+    console.log(isMenu);
+    const query =
+      isMenu == 'All'
+        ? 'SELECT * FROM car_inv'
+        : `SELECT * FROM car_inv WHERE body = '${isMenu}'`;
+
     db.transaction(tx => {
-      tx.executeSql('SELECT * FROM car_inv', [], (err, result) => {
+      tx.executeSql(query, [], (err, result) => {
         const rows = result.rows;
         let data = [];
         for (let i = 0; i < rows.length; i++) {
           data.push(rows.item(i));
         }
-        console.log('dataa nyaa');
         console.log(data);
-        console.log(err);
         resolve(data);
       });
     });
