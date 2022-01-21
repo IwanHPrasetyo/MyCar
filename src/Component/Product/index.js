@@ -6,7 +6,11 @@ import Styles from './styles';
 const Product = ({navigation, item}) => {
   return (
     <Pressable
-      onPress={() => navigation.navigate('Product')}
+      onPress={() =>
+        navigation.navigate('Product', {
+          item: item,
+        })
+      }
       style={Styles.mainView}>
       <View style={Styles.subView}>
         <Image
@@ -40,7 +44,7 @@ const Product = ({navigation, item}) => {
               }}
             />
             <Text numberOfLines={1} style={Styles.textPrice}>
-              ¥ 3.298.320
+              {'¥ ' + item.msrp}
             </Text>
           </View>
         </View>

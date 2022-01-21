@@ -1,37 +1,85 @@
-import React from 'react';
-import {ImageBackground, ScrollView, Text, View} from 'react-native';
+import React, {useState} from 'react';
+import {ImageBackground, Pressable, ScrollView, Text, View} from 'react-native';
 import {Header} from '../../Component';
-import {metric} from '../../Theme';
+import {metric, icon} from '../../Theme';
 import Styles from './styles';
 
-const Product = ({navigation}) => {
+const Product = ({route, navigation}) => {
+  const {item} = route.params;
+  const [product, setProduct] = useState(item);
+
+  let detail = JSON.stringify(item);
+  console.log(item.image);
+
   return (
     <ScrollView>
       <View style={Styles.mainView}>
         <Header navigation={navigation} type={2} />
-        <View
-          style={{
-            height: metric.screenHeight * 0.435,
-            width: '100%',
-            // alignSelf: 'center',
-            // backgroundColor: 'red',
-            justifyContent: 'center',
-          }}>
+        <View style={Styles.viewImage}>
           <ImageBackground
-            style={{height: '85%', width: '100%'}}
+            style={Styles.imageBg}
             resizeMode="cover"
             source={{
-              uri: 'https://www.goo-net.com/carphoto/10101015_201808.jpg',
+              uri: `${product.image}`,
             }}
           />
         </View>
-        <View
-          style={{
-            height: metric.screenHeight * 0.435,
-            backgroundColor: '#ffa801',
-            borderTopLeftRadius: 20,
-            borderTopRightRadius: 20,
-          }}></View>
+        <View style={Styles.footerView}>
+          <Text style={Styles.textSubHead}>
+            {product.model + ' ' + product.versi}
+          </Text>
+          <View style={Styles.baseCard}>
+            <View
+              style={[
+                Styles.card,
+                {
+                  marginRight: '3%',
+                },
+              ]}>
+              <icon.MaterialCommunityIcons
+                color={'#fa8231'}
+                name={'car-settings'}
+                size={30}
+              />
+              <Text style={Styles.textTitleSps}>{product.body}</Text>
+            </View>
+            <View
+              style={[
+                Styles.card,
+                {
+                  marginRight: '3%',
+                },
+              ]}>
+              <icon.MaterialCommunityIcons
+                color={'#fa8231'}
+                name={'car-door'}
+                size={30}
+              />
+              <Text style={Styles.textTitleSps}>{product.pintu}</Text>
+            </View>
+            <View style={Styles.card}>
+              <icon.MaterialCommunityIcons
+                color={'#fa8231'}
+                name={'fuel'}
+                size={30}
+              />
+              <Text style={Styles.textTitleSps}>
+                {product.bahanbakar + ' (L)'}
+              </Text>
+            </View>
+          </View>
+          <View style={Styles.basePrice}>
+            <View style={Styles.subPrice}>
+              <Text style={Styles.textTitlePrice}>price</Text>
+              <Text style={Styles.textPrice}>{'¥ ' + product.msrp}</Text>
+            </View>
+            <View style={Styles.subPrice}>
+              <Pressable style={Styles.buttonEdit}>
+                <Text style={Styles.textPrice}>Edit</Text>
+              </Pressable>
+            </View>
+          </View>
+        </View>
       </View>
     </ScrollView>
   );
